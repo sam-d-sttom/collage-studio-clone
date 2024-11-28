@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Home from './pages/home/Home';
+import Lenis from 'lenis';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='inner-app-div' className=''>
+      <Header />
+      <main className='mb-[100vh]'>
+        <Home />
+      </main>
+      
+      <Footer />
     </div>
   );
 }
