@@ -5,7 +5,7 @@ const SectionBody = (props) => {
     const productArray = props.productArray;
 
     return (
-        <div className="flex justify-between">
+        <div className="flex justify-between sssm:w-[350vw] sm:w-[300vw] md:w-[150vw] lg:w-full">
             {
                 productArray.map((product, index) => {
                     return (

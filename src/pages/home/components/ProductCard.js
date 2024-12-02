@@ -9,7 +9,7 @@ const ProductCard = (props) => {
     const image = props.image;
 
     return (
-        <div className="flex flex-col h-[70vh] w-[24%]">
+        <div className="flex flex-col sssm:h-[30vh] md:h-[70vh] min-h-[400px] w-[24%]">
             <div className="h-[80%] ">
                 <img src={image} style={{objectFit: "cover"}} alt="" className="w-full h-full"/>
             </div>

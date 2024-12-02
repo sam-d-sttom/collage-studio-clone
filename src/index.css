@@ -6,7 +6,7 @@ main {
     background-color: #f4f7f9;
 }
 
-.sectionHeadAnchor::after{
+.sectionHeadAnchor::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -19,4 +19,42 @@ main {
 
 .sectionHeadAnchor:hover::after {
     height: 100%;
+}
+
+*::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f100;
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+#footer-main-div{
+    transform: translate3d(-50%, -48%, 0);
+
+}
+
+@media screen and (max-height:280px) {
+    footer{
+        height: 280px;
+    }
+    
+    #footer-main-div{
+        transform: translate3d(-50%, -48%, 0);
+    }
 }

@@ -44,32 +44,32 @@ const HomeProductsSlider = () => {
 
                     {/* scrollable section */}
                     <section className="flex justify-between grow px-[6vw] py-16 overflow-x-hidden">
-                        <motion.div style={{ x }} className="flex gap-[5vw]">
+                        <motion.div style={{ x }} className="flex gap-[5vw] items-center">
                             {
                                 scrollableSectionCardData.map((card, index) => {
 
                                     return (
-                                        <div key={index} className=" h-full w-[83vw] flex">
-                                            <div className="w-[65%] h-full">
+                                        <div key={index} className=" h-full w-[83vw] flex sssm:flex-col md:flex-row overflow-hidden">
+                                            <div className="sssm:grow md:w-[65%] md:min-w-[200px] md:h-full">
                                                 <img src={card.image} style={{objectFit: "cover"}} className="w-full h-full"/>
                                             </div>
-                                            <div className="h-full flex flex-col justify-between grow p-4">
+                                            <div className="sssm:h-[150px] sssm:flex-col md:h-full flex justify-between md:grow p-4 ">
                                                 <div className="w-full leading-secondaryLineHeight">
                                                     <div className="flex justify-between w-full ">
-                                                        <span className="font-logoFontWeight text-secondaryFontSize">CATEGORY</span>
-                                                        <span className="font-logoFontWeight text-primaryFontSize w-[65%] ">{card.category}</span>
+                                                        <span className="font-logoFontWeight sssm:text-secondaryFontSizeSssm lg:text-secondaryFontSize">CATEGORY</span>
+                                                        <span className="font-logoFontWeight sssm:text-primaryFontSizeSssm lg:text-primaryFontSize w-[65%] ">{card.category}</span>
                                                     </div>
                                                     <div className="flex justify-between leading-logoFontWeight w-full">
-                                                        <span className="font-logoFontWeight text-secondaryFontSize">COLLECTION</span>
-                                                        <span className="font-logoFontWeight text-primaryFontSize w-[65%]">{card.collection}</span>
+                                                        <span className="font-logoFontWeight sssm:text-secondaryFontSizeSssm lg:text-secondaryFontSize">COLLECTION</span>
+                                                        <span className="font-logoFontWeight sssm:text-primaryFontSizeSssm lg:text-primaryFontSize w-[65%]">{card.collection}</span>
                                                     </div>
                                                     <div className="flex justify-between w-full">
-                                                        <span className="font-logoFontWeight text-secondaryFontSize">COLOR</span>
-                                                        <span className="font-logoFontWeight text-primaryFontSize w-[65%]">{card.color}</span>
+                                                        <span className="font-logoFontWeight sssm:text-secondaryFontSizeSssm lg:text-secondaryFontSize">COLOR</span>
+                                                        <span className="font-logoFontWeight sssm:text-primaryFontSizeSssm lg:text-primaryFontSize w-[65%]">{card.color}</span>
                                                     </div>
                                                 </div>
-                                                <div className="w-56">
-                                                    <span className="text-scrollableSectionProductCardNameFontSize">{card.name}</span>
+                                                <div className="w-56 lg:leading-scrollableSectionProductCardNameLineHeight">
+                                                    <span className="sssm:text-scrollableSectionProductCardNameFontSizeSssm lg:text-scrollableSectionProductCardNameFontSize">{card.name}</span>
                                                 </div>
                                             </div>
                                         </div>
