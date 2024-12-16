@@ -3,33 +3,66 @@ import SectionHead from "./components/SectionHead";
 import SectionBody from "./components/SectionBody";
 import plantersProductCardData from "../../data/plantersProductCardData";
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import useScrollToTop from "../../helper/useScrollToTop";
 
-const Home = () => {
+const Home = (props) => {
+
+    //Ensures page is scrolled to the top on initial load
+    useScrollToTop();
+
+    const REACT_APP_API_BASE_URL = props.REACT_APP_API_BASE_URL;
+
+    const [plantersFeaturedProducts, setPlantersFeaturedProducts] = useState({ 'products': [], 'productCount': 0 });
+    const [coastersFeaturedProducts, setCoastersFeaturedProducts] = useState({ 'products': [], 'productCount': 0 });
+    const [candlesFeaturedProducts, setCandlesFeaturedProducts] = useState({ 'products': [], 'productCount': 0 });
+    const [jewelryFeaturedProducts, setJewelryFeaturedProducts] = useState({ 'products': [], 'productCount': 0 });
+
+
+    // you need to implement loading data based on time stamp
+
+    useEffect(() => {
+        axios.get(`${REACT_APP_API_BASE_URL}/products/featured-categories`).then(response => {
+            
+            const products = response.data.data.products;
+            const productCount = response.data.data.productCount;
+
+            localStorage.setItem("featured products", JSON.stringify(products))
+
+            setPlantersFeaturedProducts({ ...plantersFeaturedProducts, 'products': products.planters, 'productCount': productCount.planters });
+            setCoastersFeaturedProducts({ ...coastersFeaturedProducts, 'products': products.coasters, 'productCount': productCount.coasters });
+            setCandlesFeaturedProducts({ ...candlesFeaturedProducts, 'products': products.candles, 'productCount': productCount.candles });
+            setJewelryFeaturedProducts({ ...jewelryFeaturedProducts, 'products': products.jewelry, 'productCount': productCount.jewelry });
+        }).catch(error => {
+            
+        })
+    }, [])
     return (
         <div>
             <HomeProductsSlider />
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
-                <SectionHead heading="PLANTERS" quantity={plantersProductCardData.length} />
+                <SectionHead heading="PLANTERS" quantity={plantersFeaturedProducts.productCount} link="/products/category/planters" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={plantersProductCardData} />
+                    <SectionBody productArray={plantersFeaturedProducts.products} />
                 </div>
             </section>
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
-                <SectionHead heading="COASTERS" quantity={plantersProductCardData.length} />
+                <SectionHead heading="COASTERS" quantity={coastersFeaturedProducts.productCount} link="/products/category/coasters" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={plantersProductCardData} />
+                    <SectionBody productArray={coastersFeaturedProducts.products} />
                 </div>
             </section>
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
-                <SectionHead heading="CANDLES" quantity={plantersProductCardData.length} />
+                <SectionHead heading="CANDLES" quantity={candlesFeaturedProducts.productCount} link="/products/category/candles" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={plantersProductCardData} />
+                    <SectionBody productArray={candlesFeaturedProducts.products} />
                 </div>
             </section>
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
-                <SectionHead heading="JEWELRY" quantity={plantersProductCardData.length} />
+                <SectionHead heading="JEWELRY" quantity={jewelryFeaturedProducts.productCount} link="/products/category/jewelry" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={plantersProductCardData} />
+                    <SectionBody productArray={jewelryFeaturedProducts.products} />
                 </div>
             </section>
 
