@@ -23,20 +23,22 @@ const Home = (props) => {
     // you need to implement loading data based on time stamp
 
     useEffect(() => {
-        axios.get(`${REACT_APP_API_BASE_URL}/products/featured-categories`).then(response => {
+        try{
+            axios.get(`${REACT_APP_API_BASE_URL}/products/featured-categories`).then(response => {
             
-            const products = response.data.data.products;
-            const productCount = response.data.data.productCount;
-
-            localStorage.setItem("featured products", JSON.stringify(products))
-
-            setPlantersFeaturedProducts({ ...plantersFeaturedProducts, 'products': products.planters, 'productCount': productCount.planters });
-            setCoastersFeaturedProducts({ ...coastersFeaturedProducts, 'products': products.coasters, 'productCount': productCount.coasters });
-            setCandlesFeaturedProducts({ ...candlesFeaturedProducts, 'products': products.candles, 'productCount': productCount.candles });
-            setJewelryFeaturedProducts({ ...jewelryFeaturedProducts, 'products': products.jewelry, 'productCount': productCount.jewelry });
-        }).catch(error => {
+                const products = response.data.data.products;
+                const productCount = response.data.data.productCount;
+    
+                localStorage.setItem("featured products", JSON.stringify(products))
+    
+                setPlantersFeaturedProducts({ ...plantersFeaturedProducts, 'products': products.planters, 'productCount': productCount.planters });
+                setCoastersFeaturedProducts({ ...coastersFeaturedProducts, 'products': products.coasters, 'productCount': productCount.coasters });
+                setCandlesFeaturedProducts({ ...candlesFeaturedProducts, 'products': products.candles, 'productCount': productCount.candles });
+                setJewelryFeaturedProducts({ ...jewelryFeaturedProducts, 'products': products.jewelry, 'productCount': productCount.jewelry });
+            })
+        }catch (error){
             
-        })
+        }
     }, [])
     return (
         <div>

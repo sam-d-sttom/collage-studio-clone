@@ -40,14 +40,20 @@ const Products = (props) => {
 
     //api call to get all products or products based on category or collection
     useEffect(() => {
-        axios.get(`${REACT_APP_API_BASE_URL}${appendUrl}&page=${page}`).then(response => {
-            
-            setProducts(response.data.data.data);
-            setPaginationDetails({ ...paginationDetails, "last_page": response.data.data.last_page, "total": response.data.data.total });
+        try {
+            axios.get(`${REACT_APP_API_BASE_URL}${appendUrl}&page=${page}`).then(response => {
 
-        }).catch((error) => {
-           
-        })
+                setProducts(response.data.data.data);
+                setPaginationDetails({ ...paginationDetails, "last_page": response.data.data.last_page, "total": response.data.data.total });
+
+            })
+        }catch (error){
+            
+        }
+
+        // .catch((error) => {
+
+        // })
     }, [page])
 
 
@@ -115,7 +121,7 @@ const Products = (props) => {
                                 color: "black",
                                 borderColor: "",
                             }}
-                            
+
                             whileHover={{
                                 color: "white",
                                 borderColor: "black",
@@ -132,7 +138,7 @@ const Products = (props) => {
                                 Next
                             </span>
                         </motion.button>
-                        
+
                     </div>
                 </div>
             </div>
@@ -181,7 +187,7 @@ const Products = (props) => {
                                 Prev
                             </span>
                         </motion.button>
-                        
+
                         <motion.button onClick={incrementPageNum} className="sectionHeadAnchor border-2 px-3 py-1 mr-2 relative overflow-hidden flex justify-around items-center"
                             initial={{
                                 color: "black",
@@ -204,7 +210,7 @@ const Products = (props) => {
                                 Next
                             </span>
                         </motion.button>
-                        
+
                     </div>
                 </div>
             </div>

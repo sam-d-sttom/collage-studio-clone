@@ -12,10 +12,12 @@ const SectionBody = (props) => {
                     return (
                         <ProductCard
                             product={product.name}
+                            category={product.category}
                             collection={product.collection}
                             color={product.color}
                             price={product.price}
                             image={product.image_url}
+                            img={product.image}
                         />
                     )
                 })

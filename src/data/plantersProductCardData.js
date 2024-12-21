@@ -5,32 +5,36 @@ import roundPlanter from "../assets/images/collage-pot-grand-brut-menthe-1.jpg";
 
 const plantersProductCardData = [
     {
-        product: "Square Planter",
+        name: "Square Planter",
         collection: "Brut Collection",
+        category: 'clocks',
         color: "Pink",
         price: 40,
-        image: squarePlanter,
+        image_url: linesPlanterPink,
     },
     {
-        product: "Octogonal Salt Cellar",
+        name: "Octogonal Salt Cellar",
         collection: "Haus Collection",
+        category: 'clocks',
         color: "Blue Azure",
         price: 40,
-        image: octogonalSaltCellarBlue,
+        image_url: linesPlanterPink,
     },
     {
-        product: "Lines Planter",
+        name: "Lines Planter",
         collection: "Brut Collection",
+        category: 'clocks',
         color: "Pink",
         price: 60,
-        image: linesPlanterPink,
+        image_url: linesPlanterPink,
     },
     {
-        product: "Round Planter",
+        name: "Round Planter",
         collection: "Inspira Collection",
+        category: 'clocks',
         color: "Teal",
         price: 60,
-        image: roundPlanter,
+        image_url: roundPlanter,
     },
 ];
 

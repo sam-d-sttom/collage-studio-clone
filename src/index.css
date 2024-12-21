@@ -6,6 +6,11 @@ main {
     background-color: #f4f7f9;
 }
 
+body {
+    overscroll-behavior: none;
+    overflow-x: hidden;
+}
+
 .sectionHeadAnchor::after {
     content: "";
     position: absolute;
@@ -44,17 +49,17 @@ main {
     display: none;
 }
 
-#footer-main-div{
+#footer-main-div {
     transform: translate3d(-50%, -48%, 0);
 
 }
 
 @media screen and (max-height:280px) {
-    footer{
+    footer {
         height: 280px;
     }
-    
-    #footer-main-div{
+
+    #footer-main-div {
         transform: translate3d(-50%, -48%, 0);
     }
 }

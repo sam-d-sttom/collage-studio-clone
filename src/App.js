@@ -6,6 +6,7 @@ import Lenis from 'lenis';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Products from './pages/products/Products';
+import SingleProductPage from './pages/singleProductPage/SingleProductPage';
 import { useDispatch } from "react-redux";
 import { updateProductsInCart } from './redux/features/cart/cart';
 
@@ -21,16 +22,15 @@ function App() {
 
   }, []);
 
-  
-
   return (
-    <div id='inner-app-div' className=''>
+    <div className='tracking-tighter'>
       <Header />
 
       <main className='mb-[100vh]'>
         <Routes>
           <Route path='/' element={<Home REACT_APP_API_BASE_URL={REACT_APP_API_BASE_URL}/>} />
           <Route path='/products/:attribute?/:type?' element={<Products REACT_APP_API_BASE_URL={REACT_APP_API_BASE_URL}/>} />
+          <Route path='/products/:category/:collection/:product' element={<SingleProductPage REACT_APP_API_BASE_URL={REACT_APP_API_BASE_URL}/>} />
         </Routes>
       </main>
 

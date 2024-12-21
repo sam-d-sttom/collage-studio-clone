@@ -48,6 +48,7 @@ module.exports = {
         'secondaryLineHeight': '14px',
         'scrollableSectionProductCardNameLineHeight': '40px',
         'footerHeadingLineHeight': '50px',
+        'heading3': '40px',
       },
       fontWeight: {
         'logoFontWeight': '700',
@@ -55,6 +56,7 @@ module.exports = {
         'footerHeadingFontWeight': '700',
         'productSectionHeadingFontWeight': '700',
         'productHeadingAnchorFontWeight': '600',
+        'singleProductFontWeight': '500',
       },
       fontSize: {
         'logoFontSize': 'calc(1.4vw + (0.9vh))',
@@ -78,6 +80,9 @@ module.exports = {
         'footerHeadingFontSizeSssm': '2rem',
         'footerCopyrightFontSize': '1rem',
         'footerCopyrightFontSizeSssm': '0.7rem',
+        'productFontSize': '3rem',
+        'productPropertiesFontSize': '0.8rem',
+        'productDescriptionFontSize': '0.7rem',
       }
     },
   },
