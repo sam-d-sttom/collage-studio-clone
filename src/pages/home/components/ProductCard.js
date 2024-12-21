@@ -12,7 +12,7 @@ const ProductCard = (props) => {
     return (
         <div className="flex flex-col sssm:h-[30vh] md:h-[70vh] min-h-[400px] w-[24%]">
             <Link to={`/products/${category.toLowerCase()}/${collection.toLowerCase()}/${product.toLowerCase()}`}>
-                <div className="h-[80%] ">
+                <div className="h-[300px] ">
                     <img src={image} style={{ objectFit: "cover" }} alt="" className="w-full h-full" />
                 </div>
                 <div>
