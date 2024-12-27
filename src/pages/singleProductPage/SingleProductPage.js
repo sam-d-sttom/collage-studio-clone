@@ -6,11 +6,15 @@ import { useParams } from "react-router-dom";
 import useScrollToTop from "../../helper/useScrollToTop.js";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProductsInCart, updateQuantityOfAProductInCart } from "../../redux/features/cart/cart.js";
 
 const SingleProductPage = (props) => {
 
     //Ensures page is scrolled to the top on initial load
     useScrollToTop();
+
+    const dispatch = useDispatch();
 
     const REACT_APP_API_BASE_URL = props.REACT_APP_API_BASE_URL;
 
@@ -23,6 +27,39 @@ const SingleProductPage = (props) => {
     const [productDetails, setProductDetails] = useState({});
     const [youCouldAlsoLike, setYouCouldAlsoLike] = useState([]);
 
+    const productsIncart = useSelector((state)=>state.cart.productsInCart);
+
+    function addToCart(){
+        const productId = productDetails.id;
+        const productCollection = productDetails.collection.split(' ').join('-');
+        const productColor = productDetails.color.split(' ').join('-');
+        const sku = `${productId}-${productCollection}-${productColor}`;
+
+
+        const productDataInCart = {
+            'product': productDetails.name,
+            'sku': sku,
+            'price': productDetails.price,
+            'image_url': productDetails.image_url,
+            'quantity': 1,
+            'cost': productDetails.price * 1
+        }
+
+        const matchedProduct = productsIncart.find(product => product.sku === sku);
+        
+        if(matchedProduct === undefined){
+            dispatch(updateProductsInCart(productDataInCart));
+            
+        }else{
+
+            dispatch(updateQuantityOfAProductInCart({'sku': sku, 'operation': 'increment'}))
+        }
+
+        
+
+    }
+
+
     useEffect(() => {
 
         // Scroll to top of the page 
@@ -31,7 +68,7 @@ const SingleProductPage = (props) => {
         axios.get(`${REACT_APP_API_BASE_URL}${appendUrl}`).then(response => {
             const productDetailsObj = response.data.data;
             const youCouldAlsoLikeArray = response.data.youCouldAlsoLike;
-            console.log(response.data)
+            
 
             setProductDetails(productDetailsObj);
             setYouCouldAlsoLike(youCouldAlsoLikeArray);
@@ -89,6 +126,8 @@ const SingleProductPage = (props) => {
                                     borderColor: "black",
                                     transition: { ease: "easeInOut" },
                                 }}
+
+                                onClick={addToCart}
                             >
                                 <span className=" z-10 bg-transparent font-productHeadingAnchorFontWeight">
                                     ADD TO BAG

@@ -11,6 +11,7 @@ const SectionBody = (props) => {
                 slicedProductArray.map((product, index) => {
                     return (
                         <ProductCard
+                            key={index}
                             product={product.name}
                             category={product.category}
                             collection={product.collection}

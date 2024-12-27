@@ -28,8 +28,10 @@ module.exports = {
     },
     textColor: {
       "inputTextColor": "#000",
+      'textWhite': '#fff'
     },
     colors: {
+      'divideColor': '#e2e8f0',
       'backgroundOne': '#f4f7f9',
       'backgroundTwo': '#fff',
       'transparent': '#ffffff00',
@@ -37,6 +39,8 @@ module.exports = {
       'testGreen': 'green',
       'testBlue': 'blue',
       'black': '#000',
+      'bgTransparent': '#000000cc',
+      'btnBg': '#1c1917'
     },
     extend: {
       lineHeight: {
@@ -57,6 +61,7 @@ module.exports = {
         'productSectionHeadingFontWeight': '700',
         'productHeadingAnchorFontWeight': '600',
         'singleProductFontWeight': '500',
+        'shoppingBagHeadingFontWeight': '700',
       },
       fontSize: {
         'logoFontSize': 'calc(1.4vw + (0.9vh))',
@@ -85,6 +90,9 @@ module.exports = {
         'productFontSize': '3rem',
         'productPropertiesFontSize': '0.8rem',
         'productDescriptionFontSize': '0.7rem',
+        'cartCountFontSize': '0.8rem',
+        'shoppingBagHeadingFontSize': '4rem',
+        'totalCostFontSize': '1.5rem',
       }
     },
   },

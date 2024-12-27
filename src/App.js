@@ -9,6 +9,7 @@ import Products from './pages/products/Products';
 import SingleProductPage from './pages/singleProductPage/SingleProductPage';
 import { useDispatch } from "react-redux";
 import { updateProductsInCart } from './redux/features/cart/cart';
+import ShoppingBag from './components/ShoppingBag';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
   return (
     <div className='tracking-tighter'>
       <Header />
+
+      <ShoppingBag />
 
       <main className='mb-[100vh]'>
         <Routes>
