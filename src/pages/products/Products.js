@@ -40,21 +40,16 @@ const Products = (props) => {
 
     //api call to get all products or products based on category or collection
     useEffect(() => {
-        try {
-            axios.get(`${REACT_APP_API_BASE_URL}${appendUrl}&page=${page}`).then(response => {
 
-                setProducts(response.data.data.data);
-                setPaginationDetails({ ...paginationDetails, "last_page": response.data.data.last_page, "total": response.data.data.total });
+        axios.get(`${REACT_APP_API_BASE_URL}${appendUrl}&page=${page}`).then(response => {
 
-            })
-        }catch (error){
-            
-        }
+            setProducts(response.data.data.data);
+            setPaginationDetails({ ...paginationDetails, "last_page": response.data.data.last_page, "total": response.data.data.total });
 
-        // .catch((error) => {
+        }).catch((error) => {
 
-        // })
-    }, [page])
+        })
+    }, [page, heading])
 
 
     // functions to change page num.
@@ -150,6 +145,7 @@ const Products = (props) => {
                     products.map((product, key) => {
                         return (<ProductCard key={key}
                             product={product.name}
+                            category={product.category}
                             collection={product.collection}
                             color={product.color}
                             price={product.price}

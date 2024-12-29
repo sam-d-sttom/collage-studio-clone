@@ -20,7 +20,7 @@ body {
     height: 0;
     background-color: #1c1917;
     transition: height 0.3s ease-in-out;
-    /* color: #000000cc; */
+    /* color: #c6baba; */
 }
 
 .sectionHeadAnchor:hover::after {

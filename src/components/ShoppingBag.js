@@ -72,10 +72,47 @@ const ShoppingBag = () => {
     }
 
 
+    const shoppingBagVariants = {
+        closed: {
+            right: '-100vw'
+        },
+        opened: {
+            right: 0
+        },
+    };
+    const shoppingBagBgOverlayVariants = {
+        closed: {
+            bottom: '-100vh'
+        },
+        opened: {
+            bottom: 0
+        },
+    };
+
+
     return (
-        <aside className={` z-[90] h-screen w-full fixed top-0 ${isCartOpen ? 'right-0' : 'right-[100%]'} flex`}>
-            <div className=" md:w-2/4 h-full bg-bgTransparent hover:cursor-pointer" onClick={toggleIsCartOpen}></div>
-            <div ref={asideRef} className="p-4 h-full sssm:w-full md:w-2/4 overflow-y-scroll overscroll-auto bg-backgroundTwo">
+        <motion.aside className={` z-[90] fixed`}
+            
+        >
+            <motion.div className="z-[90] fixed md:w-full h-screen bg-bgTransparent hover:cursor-pointer " onClick={toggleIsCartOpen}
+                variants={shoppingBagBgOverlayVariants}
+                initial={false}
+                animate={isCartOpen ? 'opened' : 'closed'}
+                transition={{
+                    type: 'tween',
+                    duration: 0.3
+                }}
+            >
+            </motion.div>
+            <motion.div ref={asideRef} className="z-[91] fixed p-4 h-screen sssm:w-full md:w-2/4 overflow-y-scroll overscroll-auto bg-backgroundTwo top-0"
+                variants={shoppingBagVariants}
+                initial={false}
+                animate={isCartOpen ? 'opened' : 'closed'}
+                transition={{
+                    type: 'tween',
+                    duration: 0.3
+                }}
+            >
                 <div className="">
                     <div className="h-[37vh] py-4 flex items-end">
                         <h4 className="text-shoppingBagHeadingFontSize font-shoppingBagHeadingFontWeight">SHOPPING BAG</h4>
@@ -214,8 +251,8 @@ const ShoppingBag = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-        </aside>
+            </motion.div>
+        </motion.aside>
     )
 };
 

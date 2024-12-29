@@ -28,7 +28,8 @@ module.exports = {
     },
     textColor: {
       "inputTextColor": "#000",
-      'textWhite': '#fff'
+      'textWhite': '#fff',
+      'navTextColor': "#c6baba"
     },
     colors: {
       'divideColor': '#e2e8f0',
@@ -40,7 +41,8 @@ module.exports = {
       'testBlue': 'blue',
       'black': '#000',
       'bgTransparent': '#000000cc',
-      'btnBg': '#1c1917'
+      'btnBg': '#1c1917',
+      'navBg': '#155e75'
     },
     extend: {
       lineHeight: {
@@ -53,6 +55,7 @@ module.exports = {
         'scrollableSectionProductCardNameLineHeight': '40px',
         'footerHeadingLineHeight': '50px',
         'heading3': '40px',
+        'navTextLineHeignt': '3.7rem',
       },
       fontWeight: {
         'logoFontWeight': '700',
@@ -93,6 +96,7 @@ module.exports = {
         'cartCountFontSize': '0.8rem',
         'shoppingBagHeadingFontSize': '4rem',
         'totalCostFontSize': '1.5rem',
+        'navFontSizeOne': '3rem',
       }
     },
   },
