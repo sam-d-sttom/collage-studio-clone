@@ -62,9 +62,6 @@ const Header = () => {
     const scale = useTransform(scrollYProgress, [0, 1], [scaleFrom, 1]);
     const translateY = useTransform(scrollYProgress, [0, 1], [60, 0])
 
-    useEffect(()=>{
-        console.log(scale.current)
-    })
 
     const navVariants = {
         closed: {
