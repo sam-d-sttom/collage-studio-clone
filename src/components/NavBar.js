@@ -92,7 +92,7 @@ const NavBar = () => {
             }}
 
         >
-            <Nav />
+            <Nav isUsedInNavBar={true}/>
 
             
 
