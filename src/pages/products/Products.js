@@ -5,8 +5,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import useScrollToTop from "../../helper/useScrollToTop";
 import { motion } from "motion/react";
+import SkeletonLoader from "../../components/SkeletonLoader";
 
 const Products = (props) => {
+    const [isLoading, setIsLoading] = useState(true);
+    const skeletonLoaderArray = ['loader1', 'loader2', 'loader3', 'loader4', 'loader5', 'loader6', 'loader7', 'loader8'];
 
     //Ensures page is scrolled to the top on initial load
     useScrollToTop();
@@ -40,12 +43,14 @@ const Products = (props) => {
 
     //api call to get all products or products based on category or collection
     useEffect(() => {
+        setIsLoading(true);
 
         axios.get(`${REACT_APP_API_BASE_URL}${appendUrl}&page=${page}`).then(response => {
 
             setProducts(response.data.data.data);
             setPaginationDetails({ ...paginationDetails, "last_page": response.data.data.last_page, "total": response.data.data.total });
 
+            setIsLoading(false);
         }).catch((error) => {
 
         })
@@ -142,16 +147,23 @@ const Products = (props) => {
 
 
                 {
-                    products.map((product, key) => {
-                        return (<ProductCard key={key}
-                            product={product.name}
-                            category={product.category}
-                            collection={product.collection}
-                            color={product.color}
-                            price={product.price}
-                            image={product.image_url}
-                        />)
-                    })
+                    isLoading ?
+                        skeletonLoaderArray.map((loader, index) => {
+                            return (
+                                (<SkeletonLoader  height="sssm:h-[200px] sm:h-[250px] md:h-[300px]" />)
+                            )
+                        })
+                        :
+                        products.map((product, key) => {
+                            return (<ProductCard key={key}
+                                product={product.name}
+                                category={product.category}
+                                collection={product.collection}
+                                color={product.color}
+                                price={product.price}
+                                image={product.image_url}
+                            />)
+                        })
                 }
 
             </div>

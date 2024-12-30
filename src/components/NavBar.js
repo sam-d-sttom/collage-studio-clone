@@ -2,6 +2,7 @@ import { transform } from "motion";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Nav from "./Nav";
 
 const NavBar = () => {
 
@@ -91,139 +92,9 @@ const NavBar = () => {
             }}
 
         >
-            <div className="flex justify-around items-center w-full h-full">
-                <nav>
-                    <ul className="sssm:flex sssm:flex-col items-center text-navFontSizeOne">
-                        <div className="flex sssm:flex-col md:flex-row items-center">
-                            <motion.li
-                                className="mx-2 leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.2 : 0
-                                }}
-                            >
-                                All
-                            </motion.li>
+            <Nav />
 
-                            <motion.span
-                                className="leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.35 : 0
-                                }}
-                            >
-                                {!isLessThan768 && '/'}
-                            </motion.span>
-
-                            <motion.li
-                                className="mx-2 leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.25 : 0
-                                }}
-                            >
-                                Coasters
-                            </motion.li>
-                        </div>
-                        <div className="flex sssm:flex-col md:flex-row items-center">
-                            <motion.li
-                                className="mx-2 leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.3 : 0
-                                }}
-                            >
-                                Planters
-                            </motion.li>
-
-                            <motion.span
-                                className="leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.35 : 0
-                                }}
-                            >
-                                {!isLessThan768 && '/'}
-                            </motion.span>
-
-                            <motion.li
-                                className="mx-2 leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.35 : 0
-                                }}
-                            >
-                                Candles
-                            </motion.li>
-
-                            <motion.span
-                                className="leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.35 : 0
-                                }}
-                            >
-                                {!isLessThan768 && '/'}
-                            </motion.span>
-
-                            <motion.li
-                                className="mx-2 leading-none"
-                                variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                                initial="initial"
-                                animate="final"
-                                transition={{
-                                    duration: isNavOpen ? 0.3 : 0,
-                                    ease: "easeOut",
-                                    delay: isNavOpen ? 0.4 : 0
-                                }}
-                            >
-                                Clocks
-                            </motion.li>
-                        </div>
-                        <motion.li
-                            className="mx-2 leading-navTextLineHeignt"
-                            variants={isNavOpen ? navTextVariantOne : navTextVariantTwo}
-                            initial="initial"
-                            animate="final"
-                            transition={{
-                                duration: isNavOpen ? 0.3 : 0,
-                                ease: "easeOut",
-                                delay: isNavOpen ? 0.45 : 0
-                            }}
-                        >
-                            Jewelry
-                        </motion.li>
-                    </ul>
-                </nav>
-            </div>
+            
 
         </motion.div>
     )

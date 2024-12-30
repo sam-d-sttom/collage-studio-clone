@@ -13,6 +13,7 @@ import ShoppingBag from './components/ShoppingBag';
 import NavBar from './components/NavBar';
 import { useMotionValue } from 'motion/react';
 import Nav from './components/Nav';
+import SkeletonLoader from './components/SkeletonLoader';
 
 
 function App() {
@@ -45,10 +46,36 @@ function App() {
         <div className='my-10'>
           <Nav isUsedInNavBar={false} />
         </div>
-      </main>
+
+        {/* <SkeletonLoader /> */}
+
+        {/* <div className="flex flex-col sssm:h-[30vh] md:h-[70vh] min-h-[400px] w-[24%]">
+          <div className="h-[300px] ">
+            <SkeletonLoader width='w-full' height='h-full' borderRadius='rounded-none' />
+          </div>
+          <div>
+            <div className="flex justify-between w-full h-6 items-center bg-transparent pr-4">
+              <SkeletonLoader width='w-[25%]' height='h-4' borderRadius='rounded-none' />
+              <SkeletonLoader width='w-[65%]' height='h-4' borderRadius='rounded-none' />
+            </div>
+            <div className="flex justify-between w-full h-6 items-center bg-transparent pr-4">
+              <SkeletonLoader width='w-[25%]' height='h-4' borderRadius='rounded-none' />
+              <SkeletonLoader width='w-[65%]' height='h-4' borderRadius='rounded-none' />
+            </div>
+            <div className="flex justify-between w-full h-6 items-center bg-transparent pr-4">
+              <SkeletonLoader width='w-[25%]' height='h-4' borderRadius='rounded-none' />
+              <SkeletonLoader width='w-[65%]' height='h-4' borderRadius='rounded-none' />
+            </div>
+            <div className="flex justify-between w-full h-6 items-center bg-transparent pr-4">
+              <SkeletonLoader width='w-[25%]' height='h-4' borderRadius='rounded-none' />
+              <SkeletonLoader width='w-[65%]' height='h-4' borderRadius='rounded-none' />
+            </div>
+          </div>
+        </div> */}
+      </main >
 
       <Footer />
-    </div>
+    </div >
   );
 }
 

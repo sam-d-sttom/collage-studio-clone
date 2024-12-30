@@ -11,7 +11,7 @@ const navSlice = createSlice({
         updateIsNavOpen: (state) => {
             state.isNavOpen = !(state.isNavOpen);
         },
-        updateIsNavOpenIfCartOpen: (state) => {
+        closeNav: (state) => {
             state.isNavOpen = false
         }
     }
@@ -19,4 +19,4 @@ const navSlice = createSlice({
 
 
 export default navSlice.reducer;
-export const {updateIsNavOpen, updateIsNavOpenIfCartOpen} = navSlice.actions;
+export const {updateIsNavOpen, closeNav} = navSlice.actions;

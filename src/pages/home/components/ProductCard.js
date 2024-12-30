@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SkeletonLoader from "../../../components/SkeletonLoader";
 
 
 const ProductCard = (props) => {
@@ -35,6 +36,7 @@ const ProductCard = (props) => {
                 </div>
             </Link>
         </div>
+        
     )
 };
 

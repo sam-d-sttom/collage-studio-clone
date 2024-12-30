@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateIsCartOpen } from "../redux/features/cart/cart";
-import { updateIsNavOpen, updateIsNavOpenIfCartOpen } from "../redux/features/nav/nav";
+import { updateIsNavOpen, closeNav } from "../redux/features/nav/nav";
 import { IoCloseOutline } from "react-icons/io5";
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
     const numberOfProductsInCart = useSelector((state) => state.cart.numberOfProductsInCart);
     function toggleIsCartOpen() {
         dispatch(updateIsCartOpen());
-        dispatch(updateIsNavOpenIfCartOpen());
+        dispatch(closeNav());
     }
 
     //Toggle nav open or not

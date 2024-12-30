@@ -42,9 +42,11 @@ module.exports = {
       'black': '#000',
       'bgTransparent': '#000000cc',
       'btnBg': '#1c1917',
-      'navBg': '#155e75'
+      'navBg': '#155e75',
+      'skeletonLoaderColor': '#c6baba'
     },
     extend: {
+      
       lineHeight: {
         'logoLineHeight': 'calc(1.1vw + (0.75vh))',
         'logoLineHeightMd': 'calc(1.3vw + (0.9vh))',
@@ -97,7 +99,7 @@ module.exports = {
         'shoppingBagHeadingFontSize': '4rem',
         'totalCostFontSize': '1.5rem',
         'navFontSizeOne': '3rem',
-      }
+      },
     },
   },
   plugins: [],

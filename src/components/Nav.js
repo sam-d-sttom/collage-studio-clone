@@ -1,13 +1,15 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { closeNav } from "../redux/features/nav/nav";
 
 const Nav = (props) => {
 
     const isUsedInNavBar = props.isUsedInNavBar;
 
     const isNavOpen = useSelector((state) => state.nav.isNavOpen);
+    const dispatch = useDispatch();
 
     // getting the view port width each time the user resizes the window.
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -73,6 +75,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.2 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             <Link to="/products?page=1">
                                 All
@@ -89,6 +92,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.35 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             {!isLessThan768 && '/'}
                         </motion.span>
@@ -103,6 +107,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.25 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             <Link to="/products/category/coasters?page=1">
                                 Coasters
@@ -120,6 +125,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.3 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             <Link to="/products/category/planters?page=1">
                                 Planters
@@ -136,6 +142,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.35 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             {!isLessThan768 && '/'}
                         </motion.span>
@@ -150,6 +157,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.35 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             <Link to="/products/category/candles?page=1">
                                 Candles
@@ -166,6 +174,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.35 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             {!isLessThan768 && '/'}
                         </motion.span>
@@ -180,6 +189,7 @@ const Nav = (props) => {
                                 ease: "easeOut",
                                 delay: isNavOpen ? 0.4 : 0
                             }}
+                            onClick={()=>dispatch(closeNav())}
                         >
                             <Link to="/products/category/clocks?page=1">
                                 Clocks
@@ -196,6 +206,7 @@ const Nav = (props) => {
                             ease: "easeOut",
                             delay: isNavOpen ? 0.45 : 0
                         }}
+                        onClick={()=>dispatch(closeNav())}
                     >
                         <Link to="/products/category/jewelry?page=1">
                             Jewelry

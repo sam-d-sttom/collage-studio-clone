@@ -9,6 +9,8 @@ import useScrollToTop from "../../helper/useScrollToTop";
 
 const Home = (props) => {
 
+    const [isLoading, setIsLoading] = useState(true);
+
     //Ensures page is scrolled to the top on initial load
     useScrollToTop();
 
@@ -35,6 +37,8 @@ const Home = (props) => {
             setCoastersFeaturedProducts({ ...coastersFeaturedProducts, 'products': products.coasters, 'productCount': productCount.coasters });
             setCandlesFeaturedProducts({ ...candlesFeaturedProducts, 'products': products.candles, 'productCount': productCount.candles });
             setJewelryFeaturedProducts({ ...jewelryFeaturedProducts, 'products': products.jewelry, 'productCount': productCount.jewelry });
+
+            setIsLoading(false);
         }).catch(error => {
             
         })
@@ -48,25 +52,25 @@ const Home = (props) => {
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
                 <SectionHead heading="PLANTERS" quantity={plantersFeaturedProducts.productCount} link="/products/category/planters" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={plantersFeaturedProducts.products} />
+                    <SectionBody productArray={plantersFeaturedProducts.products} isLoading={isLoading}/>
                 </div>
             </section>
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
                 <SectionHead heading="COASTERS" quantity={coastersFeaturedProducts.productCount} link="/products/category/coasters" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={coastersFeaturedProducts.products} />
+                    <SectionBody productArray={coastersFeaturedProducts.products} isLoading={isLoading}/>
                 </div>
             </section>
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
                 <SectionHead heading="CANDLES" quantity={candlesFeaturedProducts.productCount} link="/products/category/candles" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={candlesFeaturedProducts.products} />
+                    <SectionBody productArray={candlesFeaturedProducts.products} isLoading={isLoading}/>
                 </div>
             </section>
             <section className="sssm:px-[3vw] md:px-[6vw] mb-16">
                 <SectionHead heading="JEWELRY" quantity={jewelryFeaturedProducts.productCount} link="/products/category/jewelry" />
                 <div className="overflow-x-scroll overflow-y-hidden">
-                    <SectionBody productArray={jewelryFeaturedProducts.products} />
+                    <SectionBody productArray={jewelryFeaturedProducts.products} isLoading={isLoading}/>
                 </div>
             </section>
 
